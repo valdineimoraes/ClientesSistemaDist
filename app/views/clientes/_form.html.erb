@@ -1,4 +1,5 @@
 <%= form_with(model: cliente, local: true) do |form| %>
+
   <% if cliente.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
@@ -93,8 +94,8 @@
                       </fieldset>
 
                       <div class="actions">
-                        <%= submit_tag "Cadastrar Cliente", class:'btn btn-success ml-auto' %>
-                      <%= link_to "Voltar", clientes_path, class: 'btn btn-default ml-auto' %>
+                        <%= form.button :submit, class:'btn btn-success ml-auto' %>
+                      <%= link_to "Voltar", clientes_path, class: 'btn btn-secondary ml-auto' %>
                       </div>
                     <% end %>
                    </form>

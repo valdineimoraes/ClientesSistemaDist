@@ -1,0 +1,235 @@
+pt-BR:
+  breadcrumbs:
+    homepage: 'Página Inicial'
+    academics:
+      name: 'Acadêmicos'
+      new: 'Novo Acadêmico'
+      edit: 'Editar Acadêmico %{name}'
+      show: 'Visualizar Acadêmico %{name}'
+    activities:
+      name: 'Atividades'
+      new: 'Nova Atividade'
+      edit: 'Editar Atividade %{name}'
+      show: 'Visualizar Atividade %{name}'
+    activity_professors:
+      name: 'Atividades do Professor'
+      new: 'Nova Atividade'
+      edit: 'Editar Atividade %{name}'
+      show: 'Visualizar Atividade %{name}'
+    category_recommendations:
+      name: 'Categoria de Recomendações'
+      new: 'Nova Categoria'
+      edit: 'Editar Categoria %{name}'
+      show: 'Visualizar Categoria %{name}'
+    companies:
+      name: 'Empresas'
+      new: 'Nova Empresa'
+      edit: 'Editar Empresa %{name}'
+      show: 'Visualizar Empresa %{name}'
+    disciplines:
+      name: 'Disciplinas'
+      new: 'Nova Disciplina'
+      edit: 'Editar Disciplina %{name}'
+      show: 'Visualizar Disciplina %{name}'
+    faqs:
+      name: 'Perguntas Frequentes'
+      new: 'Nova Pergunta'
+      edit: 'Editar Pergunta %{name}'
+      show: 'Visualizar Pergunta %{name}'
+    matrices:
+      name: 'Matrizes'
+      new: 'Nova Matriz'
+      edit: 'Editar Matriz %{name}'
+      show: 'Visualizar Matriz %{name}'
+    periods:
+      name: 'Períodos'
+      new: 'Novo Período'
+      edit: 'Editar Período %{name}'
+      show: 'Visualizar Período %{name}'
+    periods_professors:
+      name: 'Períodos dos Professores'
+      new: 'Novo Período do Professor'
+      edit: 'Editar Período do Professor'
+      show: 'Visualizar Período do Professor'
+    professors:
+      name: 'Professores'
+      new: 'Novo Professor'
+      edit: 'Editar Professor %{name}'
+      show: 'Visualizar Professor %{name}'
+    recommendations:
+      name: 'Recomendações'
+      new: 'Nova Recomendação'
+      edit: 'Editar Recomendação %{name}'
+      show: 'Visualizar Recomendação %{name}'
+    static_pages:
+      name: 'Páginas Estáticas'
+      new: 'Nova Página'
+      edit: 'Editar Página %{name}'
+    discipline_monitors:
+      name: 'Monitorias'
+      new: 'Nova Monitoria'
+      edit: 'Editar Monitoria %{name}'
+      show: 'Visualizar Monitoria %{name}'
+    trainees:
+      name: 'Vagas de estagio'
+      new: 'Nova Vaga de estagio'
+      edit: 'Editar Vaga de estagio %{name}'
+      show: 'Visualizar Vaga de estagio %{name}'
+  helpers:
+    currently: 'Atualmente'
+    boolean:
+      'true': 'Sim'
+      'false': 'Não'
+  enums:
+    genders:
+      male: 'Masculino'
+      female: 'Feminino'
+    semesters:
+      first: '1º'
+      second: '2º'
+  flash:
+    actions:
+      update:
+        m: '%{resource_name} Atualizado com sucesso!'
+        f: '%{resource_name} Atualizada com sucesso!'
+      create:
+        m: '%{resource_name} criado com sucesso!'
+        f: '%{resource_name} criada com sucesso!'
+      destroy:
+        m: '%{resource_name} removido com sucesso!'
+        f: '%{resource_name} removida com sucesso!'
+        bond: 'Não é possível remover %{resource_name} com vínculos!'
+      errors: 'Existem dados incorretos!'
+  prompt:
+    confirm: 'Tem certeza?'
+    select:
+      m: 'Selecione um %{name}'
+      f: 'Selecione uma %{name}'
+  errors:
+    messages:
+      permalink: 'permite apenas letras, números e traços.'
+  activerecord:
+    models:
+      admin:
+        one: 'Administrador'
+        other: 'Administradores'
+      faq:
+        one: 'Pergunta'
+        other: 'Perguntas'
+      category_recommendation:
+        one: 'Categoria'
+        other: 'Categorias'
+      recommendation:
+        one: 'Recomendação'
+        other: 'Recomendações'
+      academic:
+        one: 'Acadêmico'
+        other: 'Acadêmicos'
+      activity:
+        one: 'Atividade docente'
+        other: 'Atividades docente'
+      activity_professor: 'Vículo de Atividade Docente'
+      matrix:
+        one: 'Matriz'
+        other: 'Matrizes'
+      period:
+        one: 'Período'
+        other: 'Períodos'
+      discipline:
+        one: 'Disciplina'
+        other: 'Disciplinas'
+      static_page:
+        one: 'Página estática'
+        other: 'Páginas estáticas'
+      period_professor:
+        one: 'Período do Professor'
+        other: 'Períodos do Professor'
+      discipline_monitor:
+        one: 'Monitoria de disciplina'
+        other: 'Monitorias de disciplina'
+      company:
+        one: 'Empresa'
+        other: 'Empresas'
+    attributes:
+      attribute_commons: &commons
+        name: 'Nome'
+        email: 'Email'
+        image: 'Imagem'
+        description: 'Descrição'
+        created_at: 'Criado em'
+        updated_at: 'Atualizado em'
+      admin:
+        <<: *commons
+        password: 'Senha'
+        password_confirmation: 'Confirmação de senha'
+        current_password: 'Senha atual'
+        remember_me: 'Lembre-me'
+      faq:
+        <<: *commons
+        title: Título
+        answer: Resposta
+        image: 'Imagem'
+      category_recommendation:
+        <<: *commons
+      recommendation:
+        title: 'Título'
+        description: 'Descrição'
+        image: 'Imagem'
+        category_recommendation: 'Categoria'
+      professor:
+        <<: *commons
+        gender: 'Sexo'
+        occupation_area: 'Área de atuação'
+        professor_title: 'Título'
+        professor_category: 'Tipo'
+      academic:
+        <<: *commons
+        graduated: 'Graduado'
+        contact: 'Contato'
+      activity:
+        <<: *commons
+      activity_professor:
+        professor: 'Professor'
+        activity: 'Atividade docente'
+        start_date: 'Data de ínicio'
+        end_date: 'Data de fim'
+      discipline:
+        <<: *commons
+        code: 'Código'
+        hours: 'Carga horária'
+        menu: 'Ementa'
+        period: 'Período'
+        matrix: 'Matriz'
+      matrix:
+        <<: *commons
+      period:
+        <<: *commons
+        matrix: 'Matriz'
+      static_page:
+        title: 'Título'
+        sub_title: 'Subtítulo'
+        permalink: 'Link permanente'
+        content: 'Conteúdo'
+      period_professor:
+        <<: *commons
+        date_entry: 'Data de entrada'
+        date_out: 'Data de Saída'
+        professor_category: 'Categoria do Professor'
+      discipline_monitor:
+        <<: *commons
+        year: 'Ano'
+        semester: 'Semestre'
+        academic: 'Acadêmico'
+        description: 'Descrição'
+        monitor_type: 'Tipo da monitoria'
+        discipline_ids: 'Disciplina'
+        professor_ids: 'Professor'
+      company:
+        <<: *commons
+        operation: 'Atuação'
+      trainee:
+        <<: *commons
+        title: 'Título'
+        company: 'Empresa'
+        trainee_status: 'Status'
+        

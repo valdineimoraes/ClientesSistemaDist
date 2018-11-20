@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_003321) do
+ActiveRecord::Schema.define(version: 2018_11_20_124638) do
 
   create_table "clientes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nome"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 2018_11_15_003321) do
     t.string "bairro"
     t.string "cidade"
     t.string "uf"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "produtos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nome"
+    t.float "preco"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -37,4 +44,18 @@ ActiveRecord::Schema.define(version: 2018_11_15_003321) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vendas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "produto_id"
+    t.bigint "cliente_id"
+    t.float "valor"
+    t.integer "qtde"
+    t.float "total"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cliente_id"], name: "index_vendas_on_cliente_id"
+    t.index ["produto_id"], name: "index_vendas_on_produto_id"
+  end
+
+  add_foreign_key "vendas", "clientes"
+  add_foreign_key "vendas", "produtos"
 end

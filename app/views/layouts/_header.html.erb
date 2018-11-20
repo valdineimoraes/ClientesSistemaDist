@@ -1,0 +1,30 @@
+<div class="header py-4">
+  <div class="container">
+    <div class="d-flex">
+      <%= link_to user_session_path, class: 'header-brand' do %>
+        <% image_tag 'logo-tsi-text.png', class: 'header-brand-img'  %>
+      <% end  %>
+      <div class="d-flex order-lg-2 ml-auto">
+
+        <div class="dropdown">
+          <a href="#" class="nav-link pr-0 leading-none" data-toggle="dropdown">
+              <span class="ml-2 d-none d-lg-block">
+              <small class="text-muted d-block mt-1">Administrator</small>
+            </span>
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+            <%= link_to edit_user_password_path class: 'dropdown-item' do %>
+              <i class="dropdown-icon fe fe-user"></i> Perfil
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>
+              <i class="dropdown-icon fe fe-log-out"></i> Sair
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
