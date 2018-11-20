@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_124638) do
+ActiveRecord::Schema.define(version: 2018_11_20_173800) do
 
   create_table "clientes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nome"
@@ -20,7 +20,15 @@ ActiveRecord::Schema.define(version: 2018_11_20_124638) do
     t.integer "numero"
     t.string "bairro"
     t.string "cidade"
-    t.string "uf"
+    t.bigint "estado_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["estado_id"], name: "index_clientes_on_estado_id"
+  end
+
+  create_table "estados", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nome"
+    t.string "sigla", limit: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -56,6 +64,7 @@ ActiveRecord::Schema.define(version: 2018_11_20_124638) do
     t.index ["produto_id"], name: "index_vendas_on_produto_id"
   end
 
+  add_foreign_key "clientes", "estados"
   add_foreign_key "vendas", "clientes"
   add_foreign_key "vendas", "produtos"
 end

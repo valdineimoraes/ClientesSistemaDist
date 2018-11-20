@@ -8,7 +8,7 @@ class CreateClientes < ActiveRecord::Migration[5.2]
       t.integer :numero
       t.string :bairro
       t.string :cidade
-      t.string :uf
+      t.references :estado, foreign_key: true
 
       t.timestamps
     end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :estados
   resources :vendas
   resources :produtos
   devise_for :users

@@ -1,109 +1,38 @@
-<%= form_with(model: cliente, local: true) do |form| %>
-
-  <% if cliente.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
-
-      <ul>
-      <% cliente.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= simple_form_for  @cliente do |f| %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= f.input :nome, autofocus: true%>
     </div>
-  <% end %>
-
-<div class="container">
-       <table class="table table-striped">
-          <tbody>
-             <tr>
-                <td>
-                   <form class="well form-horizontal">
-                      <fieldset>
-                         <div class="form-group">
-                            <label class="col-md-2 control-label"> Nome Completo: </label>
-                            <div class="col-md-10 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon">
-                               <i class="glyphicon glyphicon-user"></i></span>
-                               <%= form.text_field :nome, placeholder:'Digite o seu nome completo', 
-                                                          class: 'form-control', autofocus: true %>
-                               </div>
-                            </div>
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-2 control-label">CEP:</label>
-                            <div class="col-md-4 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon">
-                               <i class="glyphicon glyphicon-home"></i></span>
-                               <%= form.number_field :cep, placeholder:'Digite o seu CEP', class:'form-control' %>
-                            </div>
-                            <div class="col-md-4 inputGroupContainer">
-                              <button type="button" class="btn btn-info">
-                                        <span class="glyphicon glyphicon-check"></span> Verificar CEP</button>
-                            </div> 
-                         </div>
-                         </fieldset>
-                         <fieldset>
-                         <div class="form-group">
-                            <label class="col-md-2 control-label">Rua:</label>
-                            <div class="col-md-6 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon">
-                               <i class="glyphicon glyphicon-home"></i></span>
-                               <%= form.text_field :rua, placeholder:'Digite o nome da sua rua', class:'form-control' %>
-                            </div>
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-1 control-label">Numero: </label>
-                            <div class="col-md-3 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon">
-                               <i class="glyphicon glyphicon-earphone"></i></span>
-                               <%= form.text_field :numero, placeholder:'Digite o numero da casa', class:'form-control' %>
-                            </div>
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-2 control-label">Bairro: </label>
-                            <div class="col-md-4 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon">
-                               <i class="glyphicon glyphicon-home"></i></span>
-                               <%= form.text_field :bairro, placeholder:'Digite o nome do bairro', class:'form-control' %>
-                            </div>
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-1 control-label">Cidade:</label>
-                            <div class="col-md-5 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon">
-                               <i class="glyphicon glyphicon-home"></i></span>
-                               <%= form.text_field :cidade, placeholder:'Digite o nome da sua cidade', class:'form-control' %>
-                            </div>
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-2 control-label">Estado:</label>
-                            <div class="col-md-4 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon">
-                               <i class="glyphicon glyphicon-home"></i></span>
-                               <%= form.text_field :uf, placeholder:'Digite o nome do seu estado', class:'form-control' %>
-                            </div>
-                         </div>
-                         <div class="form-group">
-                            <label class="col-md-1 control-label">Telefone: </label>
-                            <div class="col-md-5 inputGroupContainer">
-                               <div class="input-group"><span class="input-group-addon">
-                               <i class="glyphicon glyphicon-earphone"></i></span>
-                               <%= form.text_field :tel, placeholder:'Digite o numero do seu telefone', class:'form-control' %>
-                            </div>
-                         </div>
-                      </fieldset>
-
-                      <div class="actions">
-                        <%= form.button :submit, class:'btn btn-success ml-auto' %>
-                      <%= link_to "Voltar", clientes_path, class: 'btn btn-secondary ml-auto' %>
-                      </div>
-                    <% end %>
-                   </form>
-                </td>
-             </tr>
-          </tbody>
-       </table>
+    <div class="col-sm-6 col-md-3">
+      <%= f.input :cep %>
     </div>
+    <div class="col-md-6">
+      <%= f.input :rua %>
+    </div>
+    <div class="col-sm-6 col-md-3">
+      <%= f.input :numero %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :bairro %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :tel %>
+    </div>
+    <div class="col-sm-6 col-md-6">
+      <%= f.input :cidade %>
+    </div>
+
+    <div class="col-sm-6 col-md-6">
+      <%= f.association :estado, prompt: "Escolha o estado",
+                        collection: Estado.order(:sigla) %>
+    </div>
+  </div>
+
+  <div class="d-flex">
+    <%= link_to "Voltar", clientes_path, class: 'btn btn-secondary' %>
+    <%= f.button :submit, class: 'btn btn-primary ml-auto' %>
+  </div>
+<% end %>
 
 
 

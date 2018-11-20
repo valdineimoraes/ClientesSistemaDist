@@ -1,37 +1,32 @@
 <tr>
-                    <td><%= cliente.id%>
-                    <td><%= cliente.nome %></td>
-                    <td><%= cliente.tel %></td>
-                    <td><%= cliente.cep %></td>
-                   
-                    <td><%= cliente.bairro %></td>
-                    <td><%= cliente.cidade %></td>
-                    <td><%= cliente.uf %></td>
-                    <td>
-                        <%= link_to cliente_path(cliente) do %>
-                            <span class="icon mr-3">
-                                <i class="fas fa-eye" data-toggle="tooltip"
-                                                    data-placement="top" title="Mostrar"></i>
-                            </span>
-                        <% end %>
-                    </td>
+  <td><%= cliente.id%>
+  <td><%= cliente.nome %></td>
+  <td><%= cliente.tel %></td>
+  <td><%= cliente.cep %></td>
 
-                    <td>
-                        <%= link_to edit_cliente_path(cliente) do %>
-                            <span class="icon mr-3">
-                                <i class="fas fa-edit" data-toggle="tooltip" data-placement="top" title="Editar"></i>
-                            </span>
-                        <% end %>
-                    </td>
-
-                    <td>
-                        <%= link_to cliente, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                            <span class="icon mr-3">
-                                <i class="fas fa-trash-alt" data-toggle="tooltip" data-placement="top" title="Remover"></i>
-                            </span>
-                        <% end %>
-                    </td>
-                  
-               
-                
+  <td><%= cliente.bairro %></td>
+  <td><%= cliente.cidade %></td>
+  <td><%= cliente.uf %></td>
+  <td>
+    <%= link_to cliente_path(cliente) do %>
+      <span class="icon mr-3">
+        <i class="fas fa-eye" data-toggle="tooltip"
+           data-placement="top" title="Mostrar"></i>
+      </span>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to edit_cliente_path(cliente) do %>
+      <span class="icon mr-3">
+        <i class="fas fa-edit" data-toggle="tooltip" data-placement="top" title="Editar"></i>
+      </span>
+    <% end %>
+  </td>
+  <td>
+    <%= link_to cliente, method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <span class="icon mr-3">
+        <i class="fas fa-trash-alt" data-toggle="tooltip" data-placement="top" title="Remover"></i>
+      </span>
+    <% end %>
+  </td>
 </tr>
