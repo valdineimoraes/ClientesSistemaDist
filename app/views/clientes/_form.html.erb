@@ -24,7 +24,7 @@
 
     <div class="col-sm-6 col-md-6">
       <%= f.association :estado, prompt: "Escolha o estado",
-                        collection: Estado.order(:sigla) %>
+                        collection: f.estado.sigla %>
     </div>
   </div>
 
